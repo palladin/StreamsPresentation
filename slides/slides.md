@@ -1,6 +1,6 @@
 ﻿- title : F# Streams
 - description : The F# Streams Library
-- author : Gian Ntzik
+- author : Gian Ntzik - Nick Palladinos
 - theme : nessos
 - transition : default
 
@@ -14,9 +14,9 @@ A lightweight F#/C# library for efficient functional-style pipelines on streams 
 
 ### About Me
 
-- Gian Ntzik (aka Jan Dzik)
-- @anirothan
-- Imperial College, Nessos 
+- Nick Palladinos 
+- @NickPalladinos
+- Nessos 
 
 ---
 
@@ -25,9 +25,9 @@ A lightweight F#/C# library for efficient functional-style pipelines on streams 
 - ISV based in Athens, Greece
 - .NET experts
 - Open source F# projects
-  - {m}brace
-  - FsPickler, Vagrant, and of course Streams
-- @NickPalladinos, @krontogiannis, @eiriktsarpalis
+  - MBrace
+  - FsPickler, Vagrant, LinqOptimizer, GpuLinq and of course Streams
+- @anirothan, @krontogiannis, @eiriktsarpalis
 
 https://github.com/nessos
 
@@ -93,11 +93,11 @@ compiles to
 
 ### Clash of the Lamdas
 
-ICOOOLPS'14
 
-#### Aggelos Biboudis (@biboudis)
-#### Nick Palladinos (@NickPalladinos)
-#### Yannis Smaragdakis
+![Clash of the Lambdas](images/cotl.jpg)
+ICOOOLPS'14
+[arxiv](http://arxiv.org/abs/1406.6631)
+
 
 ---
 
@@ -433,7 +433,7 @@ https://github.com/nessos/Streams
 
 #### Slides and samples
 
-https://github.com/anirothan/StreamsPresentation
+https://github.com/palladin/StreamsPresentation
 
 ***
 
