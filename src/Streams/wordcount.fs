@@ -41,7 +41,7 @@ let wordTransform (word : string) = word.Trim().ToLower()
 
 let wordFilter (word : string) = word.Length > 3 && not <| noiseWords.Contains(word)
 
-let files = Directory.GetFiles @"X:/StreamsPresentation/data"
+let files = Directory.GetFiles @"C:\Users\developer001\Source\Repos\StreamsPresentation2\data"
 
 let runtime = MBrace.InitLocal(totalNodes = 4)
 let storeClient = runtime.GetStoreClient()

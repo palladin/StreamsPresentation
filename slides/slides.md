@@ -1,8 +1,26 @@
 ﻿- title : F# Streams
 - description : The F# Streams Library
 - author : Gian Ntzik - Nick Palladinos
-- theme : nessos
+- theme : Night
 - transition : default
+
+***
+
+### Prelude
+
+***
+
+###
+
+![Amstrad CPC 6128](images/amstrad_cpc_6128.png)
+![cpc code](images/cpc_code.png)
+
+***
+
+### 
+
+![Google data center](images/ff_googleinfrastructure3_f.jpg)
+![Linq](images/linq.png)
 
 ***
 
@@ -91,7 +109,7 @@ compiles to
 
 ***
 
-### Clash of the Lamdas
+### Clash of the Lambdas
 
 
 ![Clash of the Lambdas](images/cotl.jpg)
@@ -392,6 +410,14 @@ Example: a word count
 Write function pipelines with the performance of imperative code.
 
 ***
+
+### Stream fusion in Haskell
+
+![Stream fusion](images/Stream_Fusion.jpg)
+http://code.haskell.org/~dons/papers/icfp088-coutts.pdf
+
+***
+
 
 ### Almost
 
