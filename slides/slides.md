@@ -451,9 +451,15 @@ MLton appears to always be fusing.
 
 ***
 
-#### Avaiable on NuGet
+#### GitHub 
 
 https://github.com/nessos/Streams
+
+***
+
+#### NuGet
+
+https://www.nuget.org/packages/Streams/
 
 ***
 
