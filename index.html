@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>F# Streams</title>
     <meta name="description" content="The F# Streams Library">
-    <meta name="author" content="Gian Ntzik">
+    <meta name="author" content="Gian Ntzik - Nick Palladinos">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -36,7 +36,7 @@
 </head>
 <body>
     <div class="reveal">
-        <div class="tip" id="fs1">val data : int64 []<br /><br />Full name: CDocument.data</div>
+        <div class="tip" id="fs1">val data : int64 []<br /><br />Full name: Document.data</div>
 <div class="tip" id="fs2">module Array<br /><br />from Microsoft.FSharp.Collections</div>
 <div class="tip" id="fs3">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []<br /><br />Full name: Microsoft.FSharp.Collections.Array.map</div>
 <div class="tip" id="fs4">Multiple items<br />val int64 : value:&#39;T -&gt; int64 (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int64<br /><br />--------------------<br />type int64 = System.Int64<br /><br />Full name: Microsoft.FSharp.Core.int64<br /><br />--------------------<br />type int64&lt;&#39;Measure&gt; = int64<br /><br />Full name: Microsoft.FSharp.Core.int64&lt;_&gt;</div>
@@ -54,6 +54,30 @@
         <div class="slides">
             <section>
 
+<h3>Prelude</h3>
+
+</section>
+
+<section>
+
+<h3></h3>
+
+<p><img src="images/amstrad_cpc_6128.png" alt="Amstrad CPC 6128" />
+<img src="images/cpc_code.png" alt="cpc code" /></p>
+
+</section>
+
+<section>
+
+<h3></h3>
+
+<p><img src="images/ff_googleinfrastructure3_f.jpg" alt="Google data center" />
+<img src="images/linq.png" alt="Linq" /></p>
+
+</section>
+
+<section>
+
 <h3>F# Streams</h3>
 
 <p>A lightweight F#/C# library for efficient functional-style pipelines on streams of data.</p>
@@ -67,9 +91,9 @@
 <h3>About Me</h3>
 
 <ul>
-<li>Gian Ntzik (aka Jan Dzik)</li>
-<li>@anirothan</li>
-<li>Imperial College, Nessos</li>
+<li>Nick Palladinos</li>
+<li>@NickPalladinos</li>
+<li>Nessos</li>
 </ul>
 
 </section>
@@ -83,10 +107,13 @@
 <li>.NET experts</li>
 <li>Open source F# projects
 <ul>
-<li>{m}brace</li>
-<li>FsPickler, Vagrant, and of course Streams</li>
+<li>MBrace</li>
+<li>FsPickler, Vagrant, LinqOptimizer, GpuLinq and of course Streams</li>
 </ul></li>
+<li>@anirothan, @krontogiannis, @eiriktsarpalis</li>
 </ul>
+
+<p><a href="https://github.com/nessos">https://github.com/nessos</a></p>
 
 </section>
 
@@ -174,15 +201,11 @@
 
 <section>
 
-<h3>Clash of the Lamdas</h3>
+<h3>Clash of the Lambdas</h3>
 
-<p>ICOOOLPS'14</p>
-
-<h4>Aggelos Biboudis (@biboudis)</h4>
-
-<h4>Nick Palladinos (@NickPalladinos)</h4>
-
-<h4>Yannis Smaragdakis</h4>
+<p><img src="images/cotl.jpg" alt="Clash of the Lambdas" />
+ICOOOLPS'14
+<a href="http://arxiv.org/abs/1406.6631">arxiv</a></p>
 
 </section>
 
@@ -639,6 +662,74 @@
 
 <section>
 
+<section>
+
+<h3>Some Benchmarks</h3>
+
+<h5>i7 8 x 3.7 Ghz (4 physicall), 6 GB RAM</h5>
+
+</section>
+
+<section>
+
+<h4>Sum</h4>
+
+<p><img src="images/sum.png" alt="Sum" /></p>
+
+</section>
+
+<section>
+
+<h4>Sum of Squares</h4>
+
+<p><img src="images/sum_of_square.png" alt="Sum of Squares" /></p>
+
+</section>
+
+<section>
+
+<h4>Sum of Even Squares</h4>
+
+<p><img src="images/sum_of_square_even.png" alt="Sum of Even Squares" /></p>
+
+</section>
+
+<section>
+
+<h4>Cartesian Product</h4>
+
+<p><img src="images/cartesian_product.png" alt="Cartesian" /></p>
+
+</section>
+
+<section>
+
+<h4>Parallel Sum of Squares</h4>
+
+<p><img src="images/parallel_sum_of_square.png" alt="Parallel Sum" /></p>
+
+</section>
+
+<section>
+
+<h4>Parallel Sum of Squares Even</h4>
+
+<p><img src="images/parallel_sum_of_square_even.png" alt="Parallel Sum" /></p>
+
+</section>
+
+<section>
+
+<h4>Parallel Cartesian</h4>
+
+<p><img src="images/parallel_cartesian_product.png" alt="Parallel Cartesian" /></p>
+
+</section>
+
+</section>
+
+<section>
+
 <h3>Cloud Streams!</h3>
 
 <p>Example: a word count</p>
@@ -649,17 +740,24 @@
 
 <h3>Streams are lightweight and powerful</h3>
 
-<h4>In sequential, parallel and distributed flavors.</h4>
+<h4>In sequential, parallel and distributed flavors</h4>
 
 </section>
 
 <section>
 
-<h3>The holy grail is in reach</h3>
+<h3>The Holy Grail is in reach</h3>
 
-<p>We can write functional pipelines with the performance of imperative code.</p>
+<p>Write function pipelines with the performance of imperative code.</p>
 
-<p><em>Stream fusion: from lists to streams to nothing at all, Duncan Coutts, Roman Leshchinskiy, and Don Stewart, ICFP '07</em></p>
+</section>
+
+<section>
+
+<h3>Stream fusion in Haskell</h3>
+
+<p><img src="images/Stream_Fusion.jpg" alt="Stream fusion" />
+<a href="http://code.haskell.org/~dons/papers/icfp088-coutts.pdf">http://code.haskell.org/~dons/papers/icfp088-coutts.pdf</a></p>
 
 </section>
 
@@ -707,6 +805,36 @@
 
 <section>
 
+<h4>GitHub</h4>
+
+<p><a href="https://github.com/nessos/Streams">https://github.com/nessos/Streams</a></p>
+
+</section>
+
+<section>
+
+<h4>NuGet</h4>
+
+<p><a href="https://www.nuget.org/packages/Streams/">https://www.nuget.org/packages/Streams/</a></p>
+
+</section>
+
+<section>
+
+<h4>Slides and samples</h4>
+
+<p><a href="https://github.com/palladin/StreamsPresentation">https://github.com/palladin/StreamsPresentation</a></p>
+
+</section>
+
+<section>
+
+<h3>Thank you!</h3>
+
+</section>
+
+<section>
+
 <h2>Questions?</h2>
 
 </section>
@@ -714,10 +842,6 @@
 
 
         </div>
-	<div class="logos">
-	  <img class="nessos" src="http://nessos.github.io/Streams/img/nessos.png"/>
-	  <img class="fsharp" src="http://fsharp.org/img/logo/fsharp256.png"/>
-	</div>
     </div>
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
@@ -731,7 +855,7 @@
             history: true,
             center: true,
 
-            theme: 'nessos', // available themes are in /css/theme
+            theme: 'Night', // available themes are in /css/theme
             transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
 
             // Parallax scrolling
