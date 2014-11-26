@@ -1,7 +1,7 @@
 ﻿- title : F# Streams
 - description : The F# Streams Library
 - author : Gian Ntzik - Nick Palladinos
-- theme : Night
+- theme : night
 - transition : default
 
 ***
