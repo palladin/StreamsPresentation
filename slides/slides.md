@@ -247,7 +247,7 @@ The source is pushing data down the pipeline.
 
 ### Starting from Seq.iter
 
-    iter : ('T -> unit) -> seq<'T> -> unit
+    // iter : ('T -> unit) -> seq<'T> -> unit
 	let iter f values = 
 		for value in values do
 			f value
@@ -263,7 +263,8 @@ The source is pushing data down the pipeline.
 ### Stream!
 
     type Stream<'T> = ('T -> unit) -> unit
-    iter : seq<'T> -> Stream<'T>
+	
+    // iter : seq<'T> -> Stream<'T>
 	let iter values f = 
 		for value in values do
 			f value
@@ -282,15 +283,15 @@ The source is pushing data down the pipeline.
 
     type Stream = ('T -> unit) -> unit
 	
-	map : ('T -> 'R) -> Stream<'T> -> Stream<'R> 
+	// map : ('T -> 'R) -> Stream<'T> -> Stream<'R> 
 	let map f stream = 
 		fun k -> stream (fun v -> k (f v))
 		
-	filter : ('T -> bool) -> Stream<'T> -> Stream<'T> 
+	// filter : ('T -> bool) -> Stream<'T> -> Stream<'T> 
 	let filter f stream = 
 		fun k -> stream (fun v -> if f v then k v else ()) 
 		
-	length : Stream<'T> -> int
+	// length : Stream<'T> -> int
 	let length stream = 
 		let counter = ref 0
 		stream (fun _ -> counter := counter.Value + 1)
@@ -317,7 +318,7 @@ to
 
     type Stream = ('T -> bool) -> unit
 	
-	takeWhile : ('T -> bool) -> Stream<'T> -> Stream<'T>
+	// takeWhile : ('T -> bool) -> Stream<'T> -> Stream<'T>
 	let takeWhile f stream =
 		fun k -> stream (fun v -> if f v then k v else false)
 
@@ -335,13 +336,14 @@ Zip needs to pull!
 
 ### Streams can push and pull
 
-	// ('T -> bool) is the composed continutation with 'T for the current value 
-	// and bool is a flag for early termination
-	// (unit -> unit) is a function for bulk processing
-	// (unit -> bool) is a function for on-demand processing
+	/// Provides functions for iteration
+	type Iterable<'T> = {
+		Bulk : unit -> unit 
+		TryAdvance : unit -> bool 
+	}
 
 	/// Represents a Stream of values.
-	type Stream<'T> = Stream of (('T -> bool) -> (unit -> unit) * (unit -> bool))
+	type Stream<'T> = Stream of ('T -> bool) -> Iterable<'T>
 
 ***
 
