@@ -247,7 +247,10 @@ The source is pushing data down the pipeline.
 
 ### Starting from Seq.iter
 
-    Seq.iter : ('T -> unit) -> seq<'T> -> unit
+    iter : ('T -> unit) -> seq<'T> -> unit
+	let iter f values = 
+		for value in values do
+			f value
 
 ---
 
@@ -260,7 +263,10 @@ The source is pushing data down the pipeline.
 ### Stream!
 
     type Stream<'T> = ('T -> unit) -> unit
-
+    iter : seq<'T> -> Stream<'T>
+	let iter values f = 
+		for value in values do
+			f value
 ---
 
 ### Continuation passing style!
@@ -275,9 +281,20 @@ The source is pushing data down the pipeline.
 ### Simple Streams
 
     type Stream = ('T -> unit) -> unit
-
-Can do map, filter, fold, iter
-
+	
+	map : ('T -> 'R) -> Stream<'T> -> Stream<'R> 
+	let map f stream = 
+		fun k -> stream (fun v -> k (f v))
+		
+	filter : ('T -> bool) -> Stream<'T> -> Stream<'T> 
+	let filter f stream = 
+		fun k -> stream (fun v -> if f v then k v else ()) 
+		
+	length : Stream<'T> -> int
+	let length stream = 
+		let counter = ref 0
+		stream (fun _ -> counter := counter.Value + 1)
+		counter.Value
 ***
 
 ### When to stop pushing?
@@ -299,6 +316,10 @@ Change
 to
 
     type Stream = ('T -> bool) -> unit
+	
+	takeWhile : ('T -> bool) -> Stream<'T> -> Stream<'T>
+	let takeWhile f stream =
+		fun k -> stream (fun v -> if f v then k v else false)
 
 ***
 
@@ -396,6 +417,15 @@ Implements a rich set of operations
 ### Cloud Streams!
 
 Example: a word count
+
+	cfiles
+	|> CloudStream.ofCloudFiles CloudFile.ReadLines
+	|> CloudStream.collect Stream.ofSeq 
+	|> CloudStream.collect (fun line -> splitWords line |> Stream.ofArray |> Stream.map wordTransform)
+	|> CloudStream.filter wordFilter
+	|> CloudStream.countBy id
+	|> CloudStream.sortBy (fun (_,c) -> -c) count
+	|> CloudStream.toCloudArray
 
 ***
 
